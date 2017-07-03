@@ -1,0 +1,13 @@
+quote="Думаю, на мировом рынке можно будет продать штук пять компьютеров"
+print("исходная цитата")
+print(quote)
+print("\nОна в верхнем регистре")
+print(quote.upper())
+print("\n нижнем регистре:")
+print(quote.lower())
+print("\nКак заголовок:")
+print(quote.title())
+print("\nС ма-а-аленькой заменой:")
+print("\nА вот опять исходная цитата:")
+print(quote)
+input("\n\nНажмите enter,чтобы выйти")
