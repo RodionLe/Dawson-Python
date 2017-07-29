@@ -9,5 +9,5 @@ while tries != 100:
        eagle += 1
    elif x == 2:
        tails += 1
-print("Орел выпал: ", eagle,"а решка выпала: ",tails)        
+print("Орел выпал:", eagle, "а решка выпала:", tails)        
 

@@ -5,19 +5,18 @@ tries = int(input("Введите количество попыток за ко�
 the_number = random.randint(1, 100)
 guess = int(input("ваше предположение: "))
 
-while tries != 0:
+while tries > 0 and guess != the_number:
     tries -= 1
     if guess > the_number:
         print("Меньше...")
     else:
         print("Больше...")
     guess = int(input("ваше предположение: "))
-    if guess == the_number:
-        print("Вы победили")
-        break
-    elif tries == 1:
-        print("Вы проиграли")
-        break
+    
+if guess == the_number:
+    print("Вы победили")
+else:
+    print("Вы проиграли")
      
                
 

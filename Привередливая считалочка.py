@@ -2,9 +2,9 @@ count = 0
 while True:
     count += 1
     if count > 10:
-     break
+        break
     if count == 5:
-     continue
+        continue
     print(count)
 input("\n\nНажмите enter, чтобы выйти")
     
