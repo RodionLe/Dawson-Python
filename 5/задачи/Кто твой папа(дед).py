@@ -1,7 +1,8 @@
 family = {"Аркадий Кирсанов": "Николай Кирсанов,Кирсанов",
           "Евгений Базаров": "Василий Базаров,Базаров",
           "Петр": "Алексей Михайлович",
-          "Люк": "Энакин, Палпатин"}
+          "Люк": "Энакин",
+          "Энакин": "Палпатин"}
 choice = None
 while choice != "0":
     print("""
@@ -22,6 +23,10 @@ while choice != "0":
         if name in family:
             father = family[name]
             print("у", name,"отцом является :",father)
+
+            if father in family:
+                granfather = family[father]
+                print("у", name,"дедушкой является :", granfather)
         else:
             print("Увы, такой пары у нас нет.")
     elif choice == "2":
