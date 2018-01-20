@@ -26,7 +26,7 @@ def next_block(the_file):
         if correct:
             correct = correct[0]
             explanation = next_line(the_file)
-    return category, answers, correct, explanation
+    return category, question, answers, correct, explanation
 
 def welcome(title):
     """Приветствует игрока и сообщает тему игры"""
@@ -36,36 +36,39 @@ def welcome(title):
 def main():
     trivia_file = open_file("trivia.txt", "r")
     title = next_line(trivia_file)
+    
     welcome(title)
     score = 0
-
-# Извлечение первого блока
-category, question, answers, correct, explanation, = next_block(trivia_file)
-while category:
+    
+    # Извлечение первого блока
+    category, question, answers, correct, explanation = next_block(trivia_file)
+    
+    while category:
     #Вывод вопроса на экран
-    print(category)
-    print(question)
-    for i in range(4):
-        print("\t", i + 1, "-", answers[i])
+        print(category)
+        print(question)
+        for i in range(4):
+            print("\t", i + 1, "-", answers[i])
+    
+    # получение ответа
+    
+    answer = input("Ваш ответ: ")
 
-# получение ответа
-answer = input("Ваш ответ: ")
+    if answer == correct:
+        print("\nДа!", ned=" ")
+        score += 1
+    else:
+        print("\nНет.", end=" ")
+    print(explanation)
+    print("Счет: ", score, "\n\n")
 
-if answer == correct:
-    print("\nДа!", ned=" ")
-    score += 1
-else:
-    print("\nНет.", end=" ")
-print(explanation)
-print("Счет: ", score, "\n\n")
+    # переход к следующему вопросу
+    category, question, answers, correct, explanation = ext_block(trivia_file)
 
-# переход к следующему вопросу
-category, question, answers, correct, explanation = ext_block(trivia_file)
-
-trivia_file.close
-print("Это был последний вопрос!")
-print("На вашем счету", score)
-
+    trivia_file.close
+    print("Это был последний вопрос!")
+    print("На вашем счету", score)
+    
 main()
 
 input("\n\nНажмите enter, чтобы выйти")
